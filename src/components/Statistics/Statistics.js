@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Statistics extends Component {
   render() {
@@ -6,7 +7,6 @@ class Statistics extends Component {
 
     return (
       <div>
-        {/* <p>Statistics </p> */}
         <span>Good: {good}</span>
         <span>Neutral: {neutral}</span>
         <span>Bad: {bad}</span>

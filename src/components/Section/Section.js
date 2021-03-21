@@ -1,7 +1,9 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Section extends Component {
   render() {
+    console.log(this);
     const { title, children } = this.props;
     return (
       <>
@@ -11,5 +13,15 @@ class Section extends Component {
     );
   }
 }
+
+Section.defaultProps = {
+  title: '',
+  children: [],
+};
+
+Section.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.node,
+};
 
 export default Section;

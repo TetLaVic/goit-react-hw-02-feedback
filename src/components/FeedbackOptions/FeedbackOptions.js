@@ -1,7 +1,9 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Feedback extends Component {
   render() {
+    console.log(this);
     const { onGood, onNeutral, onBad } = this.props;
     return (
       <div>
