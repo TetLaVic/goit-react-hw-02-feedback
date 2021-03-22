@@ -8,27 +8,9 @@ import Notification from './components/Notification';
 class App extends Component {
   state = { good: 0, neutral: 0, bad: 0 };
 
-  handleGoodFeedback = () => {
-    const currentState = this.state;
+  onLeaveFeedback = option => {
     this.setState(prevState => {
-      const updateState = { good: prevState.good + 1 };
-      return { ...currentState, ...updateState };
-    });
-  };
-
-  handleNeutralFeedback = () => {
-    const currentState = this.state;
-    this.setState(prevState => {
-      const updateState = { neutral: prevState.neutral + 1 };
-      return { ...currentState, ...updateState };
-    });
-  };
-
-  handleBadFeedback = () => {
-    const currentState = this.state;
-    this.setState(prevState => {
-      const updateState = { bad: prevState.bad + 1 };
-      return { ...currentState, ...updateState };
+      return { [option]: prevState[option] + 1 };
     });
   };
 
@@ -38,7 +20,6 @@ class App extends Component {
   };
 
   countPositiveFeedbackPercentage = () => {
-    console.log(Math.round((this.state.good / this.countTotalFeedBack) * 100));
     return Math.round((this.state.good / this.countTotalFeedBack()) * 100);
   };
 
@@ -47,9 +28,8 @@ class App extends Component {
       <>
         <Section title={'Leave your feedback'}>
           <FeedbackOptions
-            onGood={this.handleGoodFeedback}
-            onNeutral={this.handleNeutralFeedback}
-            onBad={this.handleBadFeedback}
+            options={Object.keys(this.state)}
+            onLeaveFeedback={this.onLeaveFeedback}
           />
         </Section>
         {this.countTotalFeedBack() ? (

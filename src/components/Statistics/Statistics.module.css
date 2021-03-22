@@ -1,0 +1,15 @@
+.stats {
+  display: flex;
+  flex-direction: column;
+}
+
+.statsItem {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.statsItemText {
+  font-weight: normal;
+  margin-right: 5px;
+}
